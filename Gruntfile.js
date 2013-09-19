@@ -5,13 +5,56 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Task configuration.
     cssmin: {
-      task: {}
+      hoge: {
+        expand: true,
+        cwd: 'root_dev/',
+        src: '**/*.css',
+        dest: 'root/',
+      },
     },
     csslint: {
-      task: {}
+      hoge: {
+        src: 'root_dev/bootstrap.css',
+        options: {
+          // ここまで緩和しないとlintが通らない
+          import: false,
+          important: false,
+          'unique-headings': false,
+          'adjoining-classes': false,
+          'fallback-colors': false,
+          gradients: false,
+          'box-model': false,
+          'compatible-vendor-prefixes': false,
+          'unqualified-attributes': false,
+          namespaced: false,
+          'outline-none': false,
+          'box-sizing': false,
+          'regex-selectors': false,
+          'qualified-headings': false,
+          'text-indent': false,
+          'universal-selector': false,
+          'overqualified-elements': false,
+          'known-properties': false,
+          'display-property-grouping': false,
+          shorthand: false,
+          floats: false,
+          'font-sizes': false,
+        },
+      },
     },
     uglify: {
-      task: {}
+      hoge: {
+        expand: true,
+        cwd: 'root_dev/',
+        src: '**/*.js',
+        dest: 'root/',
+      },
+      assets: {
+        expand: true,
+        cwd: 'root_dev/assets/',
+        src: '**/*.js',
+        dest: 'root/assets/',
+      },
     },
     jshint: {
       options: {
@@ -21,26 +64,40 @@ module.exports = function(grunt) {
         latedef: true,
         newcap: true,
         noarg: true,
-        sub: true,
         undef: true,
         unused: true,
+        sub: true,
         boss: true,
         eqnull: true,
         browser: true,
         globals: {
-          jQuery: true
-        }
+          jQuery: true,
+        },
       },
       gruntfile: {
-        src: 'Gruntfile.js'
+        src: 'Gruntfile.js',
+      },
+      hoge: {
+        src: ['root_dev/assets/**/*.js'],
+        options: {
+          jquery: true,
+        },
       },
     },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
+        tasks: ['jshint:gruntfile'],
       },
-    }
+      css: {
+        files: 'root_dev/**/*.css',
+        tasks: ['cssmin', 'csslint'],
+      },
+      js: {
+        files: 'root_dev/assets/**/*.js',
+        tasks: ['uglify:assets', 'jshint:hoge'],
+      },
+    },
   });
 
   // These plugins provide necessary tasks.
@@ -54,6 +111,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', 'watch');
 
   // Task.
-  grunt.registerTask('manual', ['cssmin', 'uglify', 'csslint', 'jshint']);
+  grunt.registerTask('manual', ['cssmin', 'uglify', 'jshint', 'csslint']);
 
 };
