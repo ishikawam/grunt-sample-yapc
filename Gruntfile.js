@@ -84,6 +84,39 @@ module.exports = function(grunt) {
         },
       },
     },
+    imagemin: {
+      hoge: {
+        expand: true,
+        cwd: 'root_dev/',
+        src: '**/*.{jpg,jpeg,png,gif}',
+        dest: 'root/',
+      },
+    },
+    copy: {
+      tt: {
+        expand: true,
+        cwd: 'root_dev/',
+        src: '**/*.tt',
+        dest: 'root/',
+      },
+      all: {
+        expand: true,
+        cwd: 'root_dev/',
+        src: '**/{*,.*}',
+        dest: 'root/',
+        options: {
+          processContentExclude: ['*.tt'],
+        },
+      },
+      options: {
+        processContentExclude: ['*.{jpg,jpeg,png,gif,css,js}'],
+      },
+    },
+    clean: {
+      hoge: {
+        src: 'root/',
+      },
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -97,20 +130,38 @@ module.exports = function(grunt) {
         files: 'root_dev/assets/**/*.js',
         tasks: ['uglify:assets', 'jshint:hoge'],
       },
+      tt: {
+        files: 'root_dev/**/*.tt',
+        tasks: ['copy:tt'],
+      },
+      reload: {
+        files: ['root_dev/**/*', 'lib/'],
+        tasks: [],
+        options: {
+          livereload: true,
+        },
+      },
     },
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');       // CSSのミニファイ
+  grunt.loadNpmTasks('grunt-contrib-csslint');      // CSSのシンタックスチェック
+  grunt.loadNpmTasks('grunt-contrib-uglify');       // JSのミニファイ
+  grunt.loadNpmTasks('grunt-contrib-jshint');       // JSのシンタックスチェック
+  grunt.loadNpmTasks('grunt-contrib-imagemin');     // 画像のミニファイ
+  grunt.loadNpmTasks('grunt-contrib-copy');         // ただのファイルコピー
+  grunt.loadNpmTasks('grunt-contrib-clean');        // ただのファイル削除
+  grunt.loadNpmTasks('grunt-contrib-watch');        // 監視
+  grunt.loadNpmTasks('grunt-notify');               // GrowlNotify
 
   // Default task.
   grunt.registerTask('default', 'watch');
 
   // Task.
-  grunt.registerTask('manual', ['cssmin', 'uglify', 'jshint', 'csslint']);
+  grunt.registerTask('manual', ['clean', 'copy', 'cssmin', 'uglify', 'imagemin', 'jshint', 'csslint']);
+
+  // GrowlNotify
+  grunt.task.run('notify_hooks');
 
 };
