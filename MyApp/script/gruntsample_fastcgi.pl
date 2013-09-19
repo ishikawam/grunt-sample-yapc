@@ -1,17 +1,17 @@
 #!/usr/bin/env perl
 
 use Catalyst::ScriptRunner;
-Catalyst::ScriptRunner->run('MyApp', 'FastCGI');
+Catalyst::ScriptRunner->run('GruntSample', 'FastCGI');
 
 1;
 
 =head1 NAME
 
-myapp_fastcgi.pl - Catalyst FastCGI
+gruntsample_fastcgi.pl - Catalyst FastCGI
 
 =head1 SYNOPSIS
 
-myapp_fastcgi.pl [options]
+gruntsample_fastcgi.pl [options]
 
  Options:
    -? --help      display this help and exit

@@ -3,8 +3,8 @@ use warnings;
 use Test::More;
 
 
-use Catalyst::Test 'MyApp';
-use MyApp::Controller::component;
+use Catalyst::Test 'GruntSample';
+use GruntSample::Controller::component;
 
 ok( request('/component')->is_success, 'Request should succeed' );
 done_testing();

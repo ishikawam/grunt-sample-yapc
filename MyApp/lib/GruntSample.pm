@@ -1,4 +1,4 @@
-package MyApp;
+package GruntSample;
 use Moose;
 use namespace::autoclean;
 
@@ -28,7 +28,7 @@ our $VERSION = '0.01';
 
 # Configure the application.
 #
-# Note that settings in myapp.conf (or other external
+# Note that settings in gruntsample.conf (or other external
 # configuration file that you set up manually) take precedence
 # over this when using ConfigLoader. Thus configuration
 # details given here can function as a default configuration,
@@ -36,7 +36,7 @@ our $VERSION = '0.01';
 # local deployment.
 
 __PACKAGE__->config(
-    name => 'MyApp',
+    name => 'GruntSample',
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
     enable_catalyst_header => 1, # Send X-Catalyst header
@@ -49,11 +49,11 @@ __PACKAGE__->setup();
 
 =head1 NAME
 
-MyApp - Catalyst based application
+GruntSample - Catalyst based application
 
 =head1 SYNOPSIS
 
-    script/myapp_server.pl
+    script/gruntsample_server.pl
 
 =head1 DESCRIPTION
 
@@ -61,7 +61,7 @@ MyApp - Catalyst based application
 
 =head1 SEE ALSO
 
-L<MyApp::Controller::Root>, L<Catalyst>
+L<GruntSample::Controller::Root>, L<Catalyst>
 
 =head1 AUTHOR
 

@@ -1,4 +1,4 @@
-package MyApp::Controller::Root;
+package GruntSample::Controller::Root;
 use Moose;
 use namespace::autoclean;
 
@@ -6,7 +6,7 @@ BEGIN { extends 'Catalyst::Controller' }
 
 #
 # Sets the actions in this controller to be registered with no prefix
-# so they function identically to actions created in MyApp.pm
+# so they function identically to actions created in GruntSample.pm
 #
 __PACKAGE__->config(namespace => '');
 
@@ -14,7 +14,7 @@ __PACKAGE__->config(namespace => '');
 
 =head1 NAME
 
-MyApp::Controller::Root - Root Controller for MyApp
+GruntSample::Controller::Root - Root Controller for GruntSample
 
 =head1 DESCRIPTION
 

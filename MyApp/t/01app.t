@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Test::More;
 
-use Catalyst::Test 'MyApp';
+use Catalyst::Test 'GruntSample';
 
 ok( request('/')->is_success, 'Request should succeed' );
 

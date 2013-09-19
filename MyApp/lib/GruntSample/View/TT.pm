@@ -1,4 +1,4 @@
-package MyApp::View::TT;
+package GruntSample::View::TT;
 use Moose;
 use namespace::autoclean;
 
@@ -11,15 +11,15 @@ __PACKAGE__->config(
 
 =head1 NAME
 
-MyApp::View::TT - TT View for MyApp
+GruntSample::View::TT - TT View for GruntSample
 
 =head1 DESCRIPTION
 
-TT View for MyApp.
+TT View for GruntSample.
 
 =head1 SEE ALSO
 
-L<MyApp>
+L<GruntSample>
 
 =head1 AUTHOR
 

@@ -3,6 +3,6 @@ use warnings;
 use Test::More;
 
 
-BEGIN { use_ok 'MyApp::View::TT' }
+BEGIN { use_ok 'GruntSample::View::TT' }
 
 done_testing();

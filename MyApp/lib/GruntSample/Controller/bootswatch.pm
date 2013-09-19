@@ -1,4 +1,4 @@
-package MyApp::Controller::component;
+package GruntSample::Controller::bootswatch;
 use Moose;
 use namespace::autoclean;
 
@@ -6,7 +6,7 @@ BEGIN { extends 'Catalyst::Controller'; }
 
 =head1 NAME
 
-MyApp::Controller::component - Catalyst Controller
+GruntSample::Controller::bootswatch - Catalyst Controller
 
 =head1 DESCRIPTION
 
@@ -24,8 +24,8 @@ Catalyst Controller.
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-#    $c->response->body('Matched MyApp::Controller::component in component.');
-    $c->stash->{template} = 'component.tt';
+#    $c->response->body('Matched GruntSample::Controller::bootswatch in bootswatch.');
+    $c->stash->{template} = 'bootswatch.tt';
 }
 
 
