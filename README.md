@@ -7,7 +7,7 @@ YAPC::Asia Tokyo 2013 で発表した Grunt のデモ用サンプルコードで
 
 発表資料はこちら→ http://www.slideshare.net/mishikawa55/2013-yapc
 
-### デモ環境の構築
+## デモの使い方
 
 事前にCatalystを入れておきましょう。
 もちろんnode、Gruntも。
@@ -34,16 +34,17 @@ grunt
 
 ```
 
-Growl, GrowlNotifyをいれておけばGruntのタスク終了後にメッセージが通知されます。（便利！）
+* Growl, GrowlNotifyをいれておけばGruntのタスク終了後にメッセージが通知されます。（便利！）
+* ブラウザにLiveReloadエクステンションを入れておけばコードを編集保存を監視してGruntタスクが走ります。（かっこいい！）
 
-ブラウザにLiveReloadエクステンションを入れておけばコードを編集保存を監視してGruntタスクが走ります。（かっこいい！）
-
-開発環境はDocumentRootを /root_dev/ に、本番環境を /root/ Catalystのサーバ起動時に'dev'オプションをつけることで切り替えています。
+開発環境はDocumentRootを /root_dev/ に、本番環境は /root/ に、Catalystのサーバ起動時に'dev'オプションをつけることで切り替えています。
 ( https://github.com/ishikawam/grunt-sample-yapc/commit/7232a0e96765877889f381687259e8e0add350be )
 
-gruntを起動（watch）させている状態でソースを編集してみて下さい。ファイルによってGruntタスクが自動で走ります。
+gruntを起動（watch）させている状態で /root_dev/ 内のソースを編集してみて下さい。ファイルによってGruntタスクが自動で走ります。
 
-例） /root_dev/ 内のcssを編集すればcssmin,csslintが走り、 /root/ に圧縮されたcssが出力されます。
+> 例） /root_dev/ 内のcssを編集すればcssmin,csslintが走り、 /root/ に圧縮されたcssが出力されます。
 
 git statusそすればGruntが変更したファイル差分を確認できます。
 
+
+使用したサンプルHTMLはBootswatchを使用しています。OSSバンザイ！
